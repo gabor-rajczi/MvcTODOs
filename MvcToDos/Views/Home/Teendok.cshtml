@@ -1,0 +1,27 @@
+﻿@using MvcToDos.Models
+@model Teendo
+
+<div class="Create">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Szoveg)
+        </div>
+        <div class="Uzenet">
+            @Html.ValidationMessageFor(model => model.Szoveg)
+        </div>
+        <div class="Muveletek">
+            @*<input type="submit" value="Hozzáadás"/>*@
+            @Ajax.ActionLink("Hozzáadás", "Create", "Home", Model, new AjaxOptions()
+                    {
+                        HttpMethod = "post",
+                        UpdateTargetId = "Teendok"
+                    })
+        </div>
+    </fieldset>
+</div>
+<div id="IndexLista">
+    @Html.Partial("IndexLista", new TeendokListaja().Teendok)
+</div>

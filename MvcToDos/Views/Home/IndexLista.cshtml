@@ -1,0 +1,24 @@
+﻿@using MvcToDos.Models
+@model IEnumerable<Teendo>
+
+
+<ul>
+
+@foreach (var item in Model.OrderByDescending(teendo => teendo.Id))
+{
+    var allapotid = "Teendo_" + item.Id;
+    if (item.Allapot)
+    {
+        <li id="@allapotid" class="Kesz">
+            @Html.Partial("IndexListaElem", item)
+        </li>
+    }
+    else
+    {
+        <li id="@allapotid">
+            @Html.Partial("IndexListaElem", item)
+        </li>
+    }
+}
+
+</ul>

@@ -1,0 +1,13 @@
+﻿@using MvcToDos.Models
+@model TeendokListaja
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Teendők</h1>
+<div class="Create">
+    @Html.Partial("Create", new Teendo())
+</div>
+<div id="IndexLista">
+    @Html.Partial("IndexLista", Model.Teendok)
+</div>

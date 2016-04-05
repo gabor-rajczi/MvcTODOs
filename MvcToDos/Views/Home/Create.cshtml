@@ -1,0 +1,41 @@
+﻿@using WebGrease.Css
+@using MvcToDos.Models
+@model Teendo
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Ajax.BeginForm("Create", "Home", new AjaxOptions()
+{
+    HttpMethod = "post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "IndexLista",
+    OnSuccess = "Home.onCreateSuccess"
+})) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Szoveg)
+        </div>
+        <div class="Uzenet">
+            @Html.ValidationMessageFor(model => model.Szoveg)
+        </div>
+        <div class="Muveletek">
+            <input type="submit" value="Hozzáadás" />
+        </div>
+    </fieldset>
+}
+<script>
+    $(document).ready(function () {
+        $("#Szoveg").focus();
+        $("#Szoveg").keypress(function(e) {
+            if (e.which == 13) {
+                $(".Create input[type='submit']").focus();
+                $(".Create input[type='submit']").click();
+            }
+        });
+    })
+</script>

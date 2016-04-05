@@ -1,0 +1,85 @@
+﻿body {
+    background-color: rgb(159, 217, 161);
+    padding:0 0.2em;
+}
+h1{
+    text-align: center;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.Muveletek a, input[type="submit"] {
+    border: .01em solid rgb(248, 246, 246);
+    display: inline-block;
+    padding: .3em;
+    text-decoration: none;
+    background-color: rgb(49, 172, 125);
+    color:azure;
+}
+
+.Muveletek a:hover, input[type="submit"]:hover{
+        background-color: rgb(100, 206, 166);
+    }
+
+li {
+    display: block;
+    border: .01em solid rgb(248, 246, 246);
+    margin: .5em 0 0 0;
+    padding: 0.5em;
+    background-color: rgb(89, 141, 90);
+    position: relative;
+}
+
+.Kesz .Szoveg {
+    text-decoration: line-through;
+}
+.Kesz {
+    background-color: rgba(89, 141, 90, 0.5);
+}
+.Kesz .Muveletek a{
+    background-color: rgba(49, 172, 125, 0.5);
+}
+
+.Muveletek {
+    display: block;
+    position: absolute;
+    right: 0.4em;
+    top: 0.4em;
+}
+
+.Szoveg {
+    display: block;
+    margin-right: 9em;
+    min-height: 2em;
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
+}
+
+#IndexLista {
+    overflow-y: auto;
+    height: 38em;
+}
+
+fieldset {
+    position: relative;
+    padding: 0;
+    border: 1px solid rgb(248, 246, 246);
+    background-color: rgb(42, 105, 81);
+}
+
+.editor-field {
+    padding-right: 6.7em;
+    padding-left: 0.4em;
+}
+
+input {
+    width: 100%;
+}
+.Uzenet {
+    padding: 0.4em;
+}
