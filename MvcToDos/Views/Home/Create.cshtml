@@ -33,8 +33,9 @@
         $("#Szoveg").focus();
         $("#Szoveg").keypress(function(e) {
             if (e.which == 13) {
-                $(".Create input[type='submit']").focus();
-                $(".Create input[type='submit']").click();
+                e.preventDefault();
+                $(".Create input[type='submit']").focus().click();
+                return false;
             }
         });
     })
