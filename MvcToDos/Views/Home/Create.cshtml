@@ -11,7 +11,7 @@
     HttpMethod = "post",
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "IndexLista",
-    OnSuccess = "Home.onCreateSuccess"
+    OnSuccess = "Create.onSuccess"
 })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -29,14 +29,5 @@
     </fieldset>
 }
 <script>
-    $(document).ready(function () {
-        $("#Szoveg").focus();
-        $("#Szoveg").keypress(function(e) {
-            if (e.which == 13) {
-                e.preventDefault();
-                $(".Create input[type='submit']").focus().click();
-                return false;
-            }
-        });
-    })
+    Create.onInit();
 </script>
