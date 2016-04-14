@@ -24,7 +24,11 @@ namespace MvcToDos.Util.Extensions
         {
             Id = teendo.Id,
             Szoveg = teendo.Szoveg,
-            Allapot = teendo.Allapot
+            Allapot = teendo.Allapot,
+            Fontossag = teendo.Fontossag.ToString(),
+            Hatarido = teendo.Hatarido == null ? null : ((DateTime)teendo.Hatarido).ToString("yyyy-MM-dd"),
+            Letrehozas = teendo.Letrehozas.ToString("yyyy-MM-dd HH:mm:ss"),
+            SzinKod = teendo.SzinKod
         };
 
         private static readonly Func<Teendo, TeendoDto> SaveFunc = SaveToDto.Compile();
@@ -44,7 +48,16 @@ namespace MvcToDos.Util.Extensions
         {
             Id = dto.Id,
             Szoveg = dto.Szoveg,
-            Allapot = dto.Allapot
+            Allapot = dto.Allapot,
+            Fontossag = dto.Fontossag == Teendo.FontossagTipus.Magas.ToString() 
+                            ? Teendo.FontossagTipus.Magas 
+                            : dto.Fontossag == Teendo.FontossagTipus.Alacsony.ToString() 
+                                ? Teendo.FontossagTipus.Alacsony 
+                                : Teendo.FontossagTipus.Normal,
+            Hatarido = dto.Hatarido == null ? null : (DateTime?)DateTime.Parse(dto.Hatarido),
+            Letrehozas = DateTime.Parse(dto.Letrehozas),
+            SzinKod = dto.SzinKod
+
         };
 
         private static readonly Func<TeendoDto, Teendo> LoadFunc = LoadFromDto.Compile();

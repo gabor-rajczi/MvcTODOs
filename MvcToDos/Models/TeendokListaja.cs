@@ -41,5 +41,16 @@ namespace MvcToDos.Models
             }
             return this;
         }
+
+        public Teendo FontossagAllitasa(int id, Teendo.FontossagTipus fontossag)
+        {
+            var teendo = Teendok.FirstOrDefault(t => t.Id == id);
+            if (teendo != null)
+            {
+                teendo.Fontossag = fontossag;
+            }
+            return teendo;
+        }
+
     }
 }

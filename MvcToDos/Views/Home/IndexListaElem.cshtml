@@ -5,22 +5,40 @@
 }
 
 <span class="Szoveg">@Model.Szoveg</span>
-<span class="Muveletek">
-    <span class="Edit">
-        @Ajax.ActionLink(Model.Allapot ? "Nem kész" : "Kész", "Edit", new { id = Model.Id, allapot = !Model.Allapot }, new AjaxOptions()
+<div class="Muveletek">
+    <span class="Done">
+        @Ajax.ActionLink(Model.Allapot ? "Nem kész" : "Kész", "Edit", new {id = Model.Id, allapot = !Model.Allapot}, new AjaxOptions()
         {
             HttpMethod = "post",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = allapotid,
-            OnSuccess = "Edit.onSucces("+allapotid+")"
+            OnSuccess = "Edit.onSucces(" + allapotid + ")"
         })
     </span>
     <span class="Delete">
-        @Ajax.ActionLink("Törlés", "Delete", new { id = Model.Id }, new AjaxOptions()
+        @Ajax.ActionLink("Törlés", "Delete", new {id = Model.Id}, new AjaxOptions()
         {
             HttpMethod = "post",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "IndexLista"
         })
     </span>
-</span>
+</div>
+<div class="Adatok">
+    <div class="Fontossag">
+        @Html.LabelFor(model => model.Fontossag)
+        @Model.FontossagToString()
+    </div>
+    <div class="Hatarido">
+        @Html.LabelFor(model => model.Hatarido)
+        @Model.HataridoToString()
+    </div>
+    @if (Model.SzinKod != null)
+    {
+        <div class="Szinkod">
+            @Html.LabelFor(model => model.SzinKod)
+            <div style="background-color: @Model.SzinKod" class="Adat"></div>
+        </div>
+    }
+    
+</div>

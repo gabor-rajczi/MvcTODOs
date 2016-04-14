@@ -42,6 +42,10 @@ li {
     background-color: rgba(49, 172, 125, 0.5);
 }
 
+.Kesz .Muveletek a:hover{
+    background-color: rgba(100, 206, 166, 0.5);
+}
+
 .Muveletek {
     display: block;
     position: absolute;
@@ -49,10 +53,11 @@ li {
     top: 0.4em;
 }
 
+
 .Szoveg {
     display: block;
     margin-right: 9em;
-    min-height: 2em;
+    min-height: 5.6em;
     white-space: pre-wrap;      /* CSS3 */   
     white-space: -moz-pre-wrap; /* Firefox */    
     white-space: -pre-wrap;     /* Opera <7 */   
@@ -82,4 +87,98 @@ input {
 }
 .Uzenet {
     padding: 0.4em;
+}
+
+.Hatarido {
+    display: inline-block;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+    }
+
+.Hatarido .DatumValaszto {
+    width: 10em;
+}
+
+.Hatarido label, .Fontossag label, .Szinkod label {
+    color: rgb(70, 255, 10);
+}
+
+.Fontossag {
+    margin-left: 1em;
+}
+.Fontossag label.Fontossag, .Fontossag{
+    display: inline-block;
+}
+
+.Fontossag label.Fontossag input{
+    display: inline-block;
+    width: 0;
+}
+
+.Fontossag label.Fontossag input + span{
+    display: inline-block;
+    padding: 0.3em;
+    border: 1px solid white;
+}
+
+.Fontossag label.Alacsony input + span{
+    background-color: green;
+}
+
+.Fontossag label.Normal input + span{
+    background-color: yellow;
+}
+
+.Fontossag label.Magas input + span{
+    background-color: orangered;
+}
+
+.Fontossag label.Fontossag input:checked + span{
+    background-color: rgb(255, 0, 0);
+    border: 2px solid rgb(255, 150, 0);
+    font-weight: bold;
+}
+.Radio {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.2em 0;
+}
+
+.Szinkod {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+.Szinkod input {
+    width: 3em;
+    vertical-align: top;
+    margin-top: 0.4em;
+}
+.Szinkod label {
+    display: inline-block;
+}
+
+.Adatok .Szinkod .Adat {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    vertical-align: top;
+}
+
+@media (max-width: 305px) {
+    .Fontossag .Radio {
+        width: 60%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .Fontossag label.Fontossag {
+        width: 100%;
+        margin: 0.2em 0;
+    }
+
+    .Fontossag label.Alacsony {
+        margin: 0 0 0.2em 0;
+    }
 }

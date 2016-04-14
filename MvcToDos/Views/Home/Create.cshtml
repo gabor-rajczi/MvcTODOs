@@ -1,4 +1,5 @@
-﻿@using WebGrease.Css
+﻿@using System.Web.Mvc.Html
+@using WebGrease.Css
 @using MvcToDos.Models
 @model Teendo
 
@@ -24,7 +25,62 @@
             @Html.ValidationMessageFor(model => model.Szoveg)
         </div>
         <div class="Muveletek">
-            <input type="submit" value="Hozzáadás" />
+            <input type="submit" value="Hozzáadás"/>
+        </div>
+        <div class="Hatarido">
+            @Html.LabelFor(model => model.Hatarido)
+            @Html.TextBoxFor(model => model.Hatarido, new{@type="date", @class="DatumValaszto"})
+        </div>
+        <div class="Fontossag">
+            @Html.LabelFor(model => model.Fontossag)
+            <div class="Radio">
+                <label class="Fontossag Alacsony">
+                    @{
+    if (Model.Fontossag == Teendo.FontossagTipus.Alacsony)
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Teendo.FontossagTipus.Alacsony, new { @checked = "" })
+    }
+    else
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Teendo.FontossagTipus.Alacsony)
+    }
+                    }
+                    <span>Alacsony</span>
+                </label>
+                <label class="Fontossag Normal">
+                    @{
+    if (Model.Fontossag == Teendo.FontossagTipus.Normal)
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Teendo.FontossagTipus.Normal, new { @checked = "" })
+    }
+    else
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Teendo.FontossagTipus.Normal)
+    }
+                    }
+                    <span>Normál</span>
+                </label>
+                <label class="Fontossag Magas">
+                    @{
+    if (Model.Fontossag == Teendo.FontossagTipus.Magas)
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Teendo.FontossagTipus.Magas, new { @checked = "" })
+    }
+    else
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Teendo.FontossagTipus.Magas)
+    }
+                    }
+                    <span>Magas</span>
+                </label>
+            </div>
+
+
+
+        </div>
+        <div class="Szinkod">
+            @Html.LabelFor(model => model.SzinKod)
+            @Html.TextBoxFor(model => model.SzinKod, new {@type = "color", @class = "SzinValaszto"})
         </div>
     </fieldset>
 }

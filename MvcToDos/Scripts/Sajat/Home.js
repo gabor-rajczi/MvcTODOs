@@ -14,14 +14,14 @@ var Create = function() {
             $("#Szoveg").keypress(function(e) {
                 if (e.which == 13) {
                     e.preventDefault();
-                    $(".Create input[type='submit']").focus().click();
+                    $("#Create input[type='submit']").focus().click();
                     return false;
                 }
             });
         });
     };
     var onSuccess = function() {
-        $(".Create form")[0].reset();
+        $("#Create form")[0].reset();
         $("#Szoveg").focus();
     };
     return {

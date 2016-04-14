@@ -16,5 +16,17 @@ namespace MvcToDos.Dtos
         [XmlAttribute]
         public bool Allapot { get; set; }
 
+        [XmlAttribute]
+        public string Letrehozas { get; set; }
+
+        [XmlAttribute]
+        public string Hatarido { get; set; }
+
+        [XmlAttribute]
+        public string Fontossag { get; set; }
+
+        [XmlAttribute]
+        public string SzinKod { get; set; }
+
     }
 }
