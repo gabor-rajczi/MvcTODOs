@@ -17,7 +17,8 @@ namespace MvcToDos.Util.Extensions
 
         private static readonly Expression<Func<TeendokListajaDto, TeendokListaja>> LoadFromDto = dto => new TeendokListaja()
         {
-            Teendok = dto.Teendok.LoadFromList().ToList()
+            Teendok = dto.Teendok.LoadFromList().ToList(),
+            TeendoListak = dto.TeendoListak.LoadFromList().ToList()
         };
 
         private static readonly Func<TeendokListajaDto, TeendokListaja> LoadFunc = LoadFromDto.Compile();
@@ -30,7 +31,8 @@ namespace MvcToDos.Util.Extensions
 
         private static readonly Expression<Func<TeendokListaja, TeendokListajaDto>> SaveFromDto = lista => new TeendokListajaDto()
         {
-            Teendok = lista.Teendok.SaveToList().ToList()
+            Teendok = lista.Teendok.SaveToList().ToList(),
+            TeendoListak = lista.TeendoListak.SaveToList().ToList()
         };
 
         private static readonly Func<TeendokListaja, TeendokListajaDto> SaveFunc = SaveFromDto.Compile();

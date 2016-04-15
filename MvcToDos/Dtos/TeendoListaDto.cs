@@ -6,8 +6,9 @@ using System.Xml.Serialization;
 
 namespace MvcToDos.Dtos
 {
-    public class TeendoDto : TeendoBaseDto
+    public class TeendoListaDto : TeendoBaseDto
     {
-        public string Szoveg { get; set; }
+        [XmlArrayItem("TeendoElem")]
+        public List<TeendoListaElemDto> TeendoListaElemek { get; set; }
     }
 }

@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace MvcToDos.Models
 {
-    public class Teendo : TeendoBase
+    public class TeendoListaElem
     {
-        [Required]
-        [Display(Name = "Teendő szövege")]
+        public int Id { get; set; }
         public string Szoveg { get; set; }
-
     }
 }

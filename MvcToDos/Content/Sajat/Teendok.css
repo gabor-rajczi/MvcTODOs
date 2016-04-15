@@ -57,7 +57,7 @@ li {
 .Szoveg {
     display: block;
     margin-right: 9em;
-    min-height: 5.6em;
+    min-height: 2em;
     white-space: pre-wrap;      /* CSS3 */   
     white-space: -moz-pre-wrap; /* Firefox */    
     white-space: -pre-wrap;     /* Opera <7 */   
@@ -139,6 +139,10 @@ input {
     border: 2px solid rgb(255, 150, 0);
     font-weight: bold;
 }
+
+li div.Adatok div.Fontossag {
+    margin-left: 0;
+}
 .Radio {
     display: inline-block;
     vertical-align: top;
@@ -164,6 +168,18 @@ input {
     width: 2em;
     height: 2em;
     vertical-align: top;
+}
+
+.SzinValaszto {
+    display: none;
+}
+
+#NemAdomMeg {
+    display: none;
+}
+
+input#SzinkodMegadva {
+    width: 0;
 }
 
 @media (max-width: 305px) {

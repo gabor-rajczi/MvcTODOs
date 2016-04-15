@@ -10,5 +10,8 @@ namespace MvcToDos.Dtos
     {
         [XmlArrayItem("Teendo")]
         public List<TeendoDto> Teendok { get; set; }
+
+        [XmlArrayItem("Teendo")]
+        public List<TeendoListaDto> TeendoListak { get; set; }
     }
 }

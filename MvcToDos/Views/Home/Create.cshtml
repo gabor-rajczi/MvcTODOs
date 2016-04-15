@@ -13,7 +13,8 @@
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "IndexLista",
     OnSuccess = "Create.onSuccess"
-})) {
+}))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -25,11 +26,11 @@
             @Html.ValidationMessageFor(model => model.Szoveg)
         </div>
         <div class="Muveletek">
-            <input type="submit" value="Hozzáadás"/>
+            <input type="submit" value="Hozzáadás" />
         </div>
         <div class="Hatarido">
             @Html.LabelFor(model => model.Hatarido)
-            @Html.TextBoxFor(model => model.Hatarido, new{@type="date", @class="DatumValaszto"})
+            @Html.TextBoxFor(model => model.Hatarido, new { @type = "date", @class = "DatumValaszto" })
         </div>
         <div class="Fontossag">
             @Html.LabelFor(model => model.Fontossag)
@@ -80,7 +81,12 @@
         </div>
         <div class="Szinkod">
             @Html.LabelFor(model => model.SzinKod)
-            @Html.TextBoxFor(model => model.SzinKod, new {@type = "color", @class = "SzinValaszto"})
+            <label id="Szinkod">
+                @Html.CheckBoxFor(model => model.SzinkodMegadva, new { @checked = "" })
+                <span id="Megadom">Megadom</span>
+                <span id="NemAdomMeg">Nem adom meg</span>
+            </label>
+            @Html.TextBoxFor(model => model.SzinKod, new { @type = "color", @class = "SzinValaszto" })
         </div>
     </fieldset>
 }

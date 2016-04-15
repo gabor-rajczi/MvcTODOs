@@ -34,7 +34,7 @@ namespace MvcToDos.Util.Extensions
         private static readonly Func<Teendo, TeendoDto> SaveFunc = SaveToDto.Compile();
 
 
-        public static Teendo Load(this TeendoDto source)
+        public static TeendoBase Load(this TeendoDto source)
         {
             return source == null ? null : LoadFunc(source);
         }
@@ -49,11 +49,11 @@ namespace MvcToDos.Util.Extensions
             Id = dto.Id,
             Szoveg = dto.Szoveg,
             Allapot = dto.Allapot,
-            Fontossag = dto.Fontossag == Teendo.FontossagTipus.Magas.ToString() 
-                            ? Teendo.FontossagTipus.Magas 
-                            : dto.Fontossag == Teendo.FontossagTipus.Alacsony.ToString() 
-                                ? Teendo.FontossagTipus.Alacsony 
-                                : Teendo.FontossagTipus.Normal,
+            Fontossag = dto.Fontossag == TeendoBase.FontossagTipus.Magas.ToString() 
+                            ? TeendoBase.FontossagTipus.Magas 
+                            : dto.Fontossag == TeendoBase.FontossagTipus.Alacsony.ToString() 
+                                ? TeendoBase.FontossagTipus.Alacsony 
+                                : TeendoBase.FontossagTipus.Normal,
             Hatarido = dto.Hatarido == null ? null : (DateTime?)DateTime.Parse(dto.Hatarido),
             Letrehozas = DateTime.Parse(dto.Letrehozas),
             SzinKod = dto.SzinKod
