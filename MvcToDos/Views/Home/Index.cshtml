@@ -5,9 +5,21 @@
 }
 
 <h1>Teendők</h1>
+<div class="Types">
+    <label><input type="radio" name="Type" checked value="teendo" id="Radio-Teendo"/>Teendő</label>
+    <label><input type="radio" name="Type" value="teendolista" id="Radio-Teendolista"/>Teendőlista</label>
+</div>
 <div id="Create">
-    @Html.Partial("Create", new Teendo())
+    <div id="Create-Teendo">
+        @Html.Partial("CreateTeendo", new Teendo())
+    </div>
+    <div id="Create-Teendolista">
+        @Html.Partial("CreateTeendolista", new TeendoLista())
+    </div>
 </div>
 <div id="IndexLista">
     @Html.Partial("IndexLista", Model.Teendok)
 </div>
+<script>
+    Create.onInit();
+</script>

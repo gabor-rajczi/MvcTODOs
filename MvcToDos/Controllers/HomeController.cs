@@ -53,7 +53,7 @@ namespace MvcToDos.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Teendo teendo)
+        public ActionResult CreateTeendo(Teendo teendo)
         {
             var lista = LoadTeendok();
             if (ModelState.IsValid) { 
@@ -62,7 +62,19 @@ namespace MvcToDos.Controllers
             }
             return PartialView("IndexLista", lista.Teendok);
         }
-        
+
+        [HttpPost]
+        public ActionResult CreateTeendolista(TeendoLista teendo)
+        {
+            var lista = LoadTeendok();
+            if (ModelState.IsValid)
+            {
+                lista.UjTeendo(teendo);
+                SaveTeendok(lista);
+            }
+            return PartialView("IndexLista", lista.Teendok);
+        }
+
         [HttpPost]
         public ActionResult Edit(int id, bool allapot)
         {

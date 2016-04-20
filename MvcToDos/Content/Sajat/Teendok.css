@@ -32,7 +32,7 @@ li {
     position: relative;
 }
 
-.Kesz .Szoveg {
+.Kesz .Szoveg, .Kesz .TeendoLista {
     text-decoration: line-through;
 }
 .Kesz {
@@ -181,6 +181,30 @@ li div.Adatok div.Fontossag {
 input#SzinkodMegadva {
     width: 0;
 }
+
+.TeendoLista {
+    white-space: normal;
+}
+
+.TeendoLista ul {
+    border: none;
+    padding-left: 1.4em;
+    list-style: disc outside none;
+    margin-right: 9em;
+}
+
+.TeendoLista li {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: list-item;
+    position: static;
+}
+.Kesz .TeendoLista li {
+    background-color: rgba(89, 141, 90, 0);
+}
+
+
 
 @media (max-width: 305px) {
     .Fontossag .Radio {

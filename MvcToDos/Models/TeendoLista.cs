@@ -12,6 +12,7 @@ namespace MvcToDos.Models
         public TeendoLista()
         {
             TeendoListaElemek = new List<TeendoListaElem>();
+
         }
     }
 }

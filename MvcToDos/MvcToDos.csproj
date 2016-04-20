@@ -135,6 +135,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Fontossag.cs" />
+    <Compile Include="Models\ITeendo.cs" />
     <Compile Include="Models\Teendo.cs" />
     <Compile Include="Models\TeendoBase.cs" />
     <Compile Include="Models\TeendokListaja.cs" />
@@ -237,10 +239,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\CreateTeendo.cshtml" />
     <Content Include="Views\Home\IndexLista.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\IndexListaElem.cshtml" />
+    <None Include="Views\Home\CreateTeendolista.cshtml" />
+    <None Include="Views\Home\TeendoLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

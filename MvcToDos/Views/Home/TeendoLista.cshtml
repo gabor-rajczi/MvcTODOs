@@ -1,0 +1,8 @@
+﻿@model MvcToDos.Models.TeendoLista
+
+<ul>
+    @foreach (var elem in Model.TeendoListaElemek)
+    {
+        <li><span>@elem.Szoveg</span></li>
+    }
+</ul>

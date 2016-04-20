@@ -1,0 +1,92 @@
+﻿@using System.Web.Mvc.Html
+@using WebGrease.Css
+@using MvcToDos.Models
+@model Teendo
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Ajax.BeginForm("CreateTeendo", "Home", new AjaxOptions()
+{
+    HttpMethod = "post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "IndexLista",
+    OnSuccess = "Create.onSuccess"
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Szoveg)
+        </div>
+        <div class="Uzenet">
+            @Html.ValidationMessageFor(model => model.Szoveg)
+        </div>
+        <div class="Muveletek">
+            <input type="submit" value="Hozzáadás" />
+        </div>
+        <div class="Hatarido">
+            @Html.LabelFor(model => model.Hatarido)
+            @Html.TextBoxFor(model => model.Hatarido, new { @type = "date", @class = "DatumValaszto" })
+        </div>
+        <div class="Fontossag">
+            @Html.LabelFor(model => model.Fontossag)
+            <div class="Radio">
+                <label class="Fontossag Alacsony">
+                    @{
+    if (Model.Fontossag.IsAlacsony())
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Fontossag.Tipus.Alacsony, new { @checked = "" })
+    }
+    else
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Fontossag.Tipus.Alacsony)
+    }
+                    }
+                    <span>Alacsony</span>
+                </label>
+                <label class="Fontossag Normal">
+                    @{
+    if (Model.Fontossag.IsNormal())
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Fontossag.Tipus.Normal, new { @checked = "" })
+    }
+    else
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Fontossag.Tipus.Normal)
+    }
+                    }
+                    <span>Normál</span>
+                </label>
+                <label class="Fontossag Magas">
+                    @{
+    if (Model.Fontossag.IsMagas())
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Fontossag.Tipus.Magas, new { @checked = "" })
+    }
+    else
+    {
+        @Html.RadioButtonFor(model => model.Fontossag, Fontossag.Tipus.Magas)
+    }
+                    }
+                    <span>Magas</span>
+                </label>
+            </div>
+
+
+
+        </div>
+        <div class="Szinkod">
+            @Html.LabelFor(model => model.SzinKod)
+            <label id="Szinkod">
+                @Html.CheckBoxFor(model => model.SzinkodMegadva, new { @checked = "" })
+                <span id="Megadom">Megadom</span>
+                <span id="NemAdomMeg">Nem adom meg</span>
+            </label>
+            @Html.TextBoxFor(model => model.SzinKod, new { @type = "color", @class = "SzinValaszto" })
+        </div>
+    </fieldset>
+}

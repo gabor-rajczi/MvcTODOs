@@ -1,10 +1,10 @@
 ﻿@using MvcToDos.Models
-@model IEnumerable<Teendo>
+@model IEnumerable<ITeendo>
 
 
 <ul>
 
-@foreach (var item in Model.OrderByDescending(teendo => teendo.Id))
+@foreach (var item in Model.OrderByDescending(teendo => teendo.Letrehozas))
 {
     var allapotid = "Teendo_" + item.Id;
     if (item.Allapot)

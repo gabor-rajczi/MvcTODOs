@@ -2,32 +2,50 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MvcToDos.Dtos;
 
 namespace MvcToDos.Models
 {
     public class TeendokListaja
     {
-        public List<Teendo> Teendok { get; set; }
-        public List<TeendoLista> TeendoListak { get; set; }
+        public List<ITeendo> Teendok { get; set; }
 
         public TeendokListaja()
         {
-            Teendok = new List<Teendo>();
-            TeendoListak = new List<TeendoLista>();
+            Teendok = new List<ITeendo>();
         }
 
-        public TeendokListaja UjTeendo(Teendo ujTeendo)
+        public TeendokListaja UjTeendo(ITeendo ujTeendo)
         {
-            ujTeendo.Id = GetNextId();
+            ujTeendo.Id = Teendok.Any() ? Teendok.Max(t => t.Id)+1 : 1;
             if (!ujTeendo.SzinkodMegadva)
             {
                 ujTeendo.SzinKod = null;
             }
             Teendok.Add(ujTeendo);
+            /*
+            var lista = new TeendoLista()
+            {
+                TeendoListaElemek = new List<TeendoListaElem>()
+                {
+                    new TeendoListaElem()
+                    {
+                        Szoveg = "teszt",
+                        Id = 1
+                    },
+                    new TeendoListaElem()
+                    {
+                        Szoveg = "tesztetzst",
+                        Id = 2
+                    },
+                }
+            };
+            Teendok.Add(lista);
+             */
             return this;
         }
 
-        public Teendo AllapotValtas(int id, bool allapot)
+        public ITeendo AllapotValtas(int id, bool allapot)
         {
             var teendo = Teendok.FirstOrDefault(t => t.Id == id);
             if (teendo != null)
@@ -47,7 +65,7 @@ namespace MvcToDos.Models
             return this;
         }
 
-        public Teendo FontossagAllitasa(int id, TeendoBase.FontossagTipus fontossag)
+        public ITeendo FontossagAllitasa(int id, Fontossag.Tipus fontossag)
         {
             var teendo = Teendok.FirstOrDefault(t => t.Id == id);
             if (teendo != null)
@@ -55,21 +73,6 @@ namespace MvcToDos.Models
                 teendo.Fontossag = fontossag;
             }
             return teendo;
-        }
-
-        private int GetNextId()
-        {
-            int idFromTeendok = 1;
-            int idFromTeendoListak = 1;
-            if (Teendok.Any())
-            {
-                idFromTeendok += Teendok.Max(t => t.Id);
-            }
-            if (TeendoListak.Any())
-            {
-                idFromTeendoListak += TeendoListak.Max(t => t.Id);
-            }
-            return idFromTeendok > idFromTeendoListak ? idFromTeendok : idFromTeendoListak;
         }
     }
 }

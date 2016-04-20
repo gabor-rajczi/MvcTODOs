@@ -1,13 +1,24 @@
 ﻿@using MvcToDos.Models
-@model Teendo
+@model ITeendo
 @{
     var allapotid = "Teendo_" + Model.Id;
 }
+@if (Model is Teendo)
+{
+    var m = (Teendo) Model;
+    <span class="Szoveg">@m.Szoveg</span>
+}
 
-<span class="Szoveg">@Model.Szoveg</span>
+@if (Model is TeendoLista)
+{
+    var m = (TeendoLista)Model;
+    <span class="TeendoLista">
+        @Html.Partial("TeendoLista", m)
+    </span>
+}
 <div class="Muveletek">
     <span class="Done">
-        @Ajax.ActionLink(Model.Allapot ? "Nem kész" : "Kész", "Edit", new {id = Model.Id, allapot = !Model.Allapot}, new AjaxOptions()
+        @Ajax.ActionLink(Model.Allapot ? "Nem kész" : "Kész", "Edit", new { id = Model.Id, allapot = !Model.Allapot }, new AjaxOptions()
         {
             HttpMethod = "post",
             InsertionMode = InsertionMode.Replace,
@@ -16,7 +27,7 @@
         })
     </span>
     <span class="Delete">
-        @Ajax.ActionLink("Törlés", "Delete", new {id = Model.Id}, new AjaxOptions()
+        @Ajax.ActionLink("Törlés", "Delete", new { id = Model.Id }, new AjaxOptions()
         {
             HttpMethod = "post",
             InsertionMode = InsertionMode.Replace,
@@ -27,7 +38,7 @@
 <div class="Adatok">
     <div class="Fontossag">
         @Html.LabelFor(model => model.Fontossag)
-        @Model.FontossagToString()
+        @Model.Fontossag.ToUI()
     </div>
     <div class="Hatarido">
         @Html.LabelFor(model => model.Hatarido)
@@ -40,5 +51,6 @@
             <div style="background-color: @Model.SzinKod" class="Adat"></div>
         </div>
     }
-    
+
 </div>
+

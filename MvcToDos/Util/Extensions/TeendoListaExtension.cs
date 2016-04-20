@@ -25,11 +25,7 @@ namespace MvcToDos.Util.Extensions
             TeendoListaElemek = dto.TeendoListaElemek.LoadFromList().ToList(),
             Id = dto.Id,
             Allapot = dto.Allapot,
-            Fontossag = dto.Fontossag == TeendoBase.FontossagTipus.Magas.ToString()
-                            ? TeendoBase.FontossagTipus.Magas
-                            : dto.Fontossag == TeendoBase.FontossagTipus.Alacsony.ToString()
-                                ? TeendoBase.FontossagTipus.Alacsony
-                                : TeendoBase.FontossagTipus.Normal,
+            Fontossag = Fontossag.ToTipus(dto.Fontossag),
             Hatarido = dto.Hatarido == null ? null : (DateTime?)DateTime.Parse(dto.Hatarido),
             Letrehozas = DateTime.Parse(dto.Letrehozas),
             SzinKod = dto.SzinKod
