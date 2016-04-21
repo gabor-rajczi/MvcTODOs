@@ -8,14 +8,14 @@ namespace MvcToDos.Models
 {
     public class TeendokListaja
     {
-        public List<ITeendo> Teendok { get; set; }
+        public List<TeendoBase> Teendok { get; set; }
 
         public TeendokListaja()
         {
-            Teendok = new List<ITeendo>();
+            Teendok = new List<TeendoBase>();
         }
 
-        public TeendokListaja UjTeendo(ITeendo ujTeendo)
+        public TeendokListaja UjTeendo(TeendoBase ujTeendo)
         {
             ujTeendo.Id = Teendok.Any() ? Teendok.Max(t => t.Id)+1 : 1;
             if (!ujTeendo.SzinkodMegadva)
