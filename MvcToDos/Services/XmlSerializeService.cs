@@ -12,17 +12,20 @@ namespace MvcToDos.Services
         public string Serialize<T>(T serializableItem)
         {
             var serializer = new XmlSerializer(typeof (T), new XmlRootAttribute("Root"));
-            TextWriter result = new StringWriter();
-            serializer.Serialize(result, serializableItem);
-            return result.ToString();
+            using (TextWriter result = new StringWriter()) { 
+                serializer.Serialize(result, serializableItem);
+                return result.ToString();
+            }
         }
 
         public T Deserialize<T>(string deserializableItem)
         {
             var serializer = new XmlSerializer(typeof(T), new XmlRootAttribute("Root"));
-            var item = new StringReader(deserializableItem);
-            T result = (T)serializer.Deserialize(item);
-            return result;
+            using (var item = new StringReader(deserializableItem))
+            {
+                T result = (T)serializer.Deserialize(item);
+                return result;
+            }
         }
     }
 }
