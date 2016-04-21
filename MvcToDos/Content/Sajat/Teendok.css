@@ -10,7 +10,7 @@ ul {
     padding-left: 0;
 }
 
-.Muveletek a, input[type="submit"] {
+.Muveletek a, input[type="submit"], #TeendolistaElemek button {
     border: .01em solid rgb(248, 246, 246);
     display: inline-block;
     padding: .3em;
@@ -19,7 +19,7 @@ ul {
     color:azure;
 }
 
-.Muveletek a:hover, input[type="submit"]:hover{
+.Muveletek a:hover, input[type="submit"]:hover, #TeendolistaElemek button:hover {
         background-color: rgb(100, 206, 166);
     }
 
@@ -204,6 +204,68 @@ input#SzinkodMegadva {
     background-color: rgba(89, 141, 90, 0);
 }
 
+
+div.Types label {
+    display: inline-block;
+    min-width: 7em;
+    text-align: center;
+}
+
+div.Types input {
+    width: 0;
+}
+
+div.Types input:checked + span {
+    background-color: red;
+    padding: 1em;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 1em 1em 0 0;
+}
+
+div.Types input + span {
+    min-width: 6em;
+}
+
+div#TeendolistaElemek {
+    margin-right: 7em;
+}
+
+div#TeendolistaElemek ul { margin: 0;}
+
+div#TeendolistaElemek li {
+    border: none;
+    background: none;
+    margin: 0;
+}
+
+.Elem {
+    position: relative;
+    padding-right: 5em;
+}
+
+button.Torles {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.Hiba {
+    color: red;
+}
+
+#TeendolistaElemek input[type="text"] {
+    min-height: 0;
+}
+
+button#ujElem {
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+div#TeendolistaElemek li {
+    padding-left: 0.4em;
+}
 
 
 @media (max-width: 305px) {

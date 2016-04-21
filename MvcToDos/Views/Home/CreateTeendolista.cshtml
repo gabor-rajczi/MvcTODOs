@@ -12,7 +12,8 @@
     HttpMethod = "post",
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "IndexLista",
-    OnSuccess = "Create.onSuccess"
+    OnSuccess = "CreateLista.onSuccess",
+    OnBegin = "CreateLista.onBegin"
 }))
 {
     @Html.AntiForgeryToken()
@@ -26,7 +27,19 @@
             @Html.ValidationMessageFor(model => model.Szoveg)
         </div>*@
         <div id="TeendolistaElemek">
-            
+            <ul>
+                <li class="UresListaElem" style="display: none">
+                    <div class="Elem">
+                        <span class="Input">
+                            <input type="hidden" class="Id" />
+                            <input type="text" class="Szoveg" />
+                        </span>
+                        <button class="Torles">Törlés</button>
+                        <div class="Hiba" style="display: none"></div>
+                    </div>
+                </li>
+            </ul>
+            <button id="ujElem">Új elem</button>
         </div>
         <div class="Muveletek">
             <input type="submit" value="Hozzáadás" />
@@ -94,3 +107,6 @@
     </fieldset>
 }
 
+<script>
+    CreateLista.onInit();
+</script>
