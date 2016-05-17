@@ -10,13 +10,17 @@
     if (item.Allapot)
     {
         <li id="@allapotid" class="Kesz">
-            @Html.Partial("IndexListaElem", item)
+            @{
+             Html.RenderPartial("IndexListaElem", item)   
+            }
         </li>
     }
     else
     {
         <li id="@allapotid">
-            @Html.Partial("IndexListaElem", item)
+            @{
+             Html.RenderPartial("IndexListaElem", item)
+            }
         </li>
     }
 }
