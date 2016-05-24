@@ -57,5 +57,49 @@ namespace MvcToDos.Util.Extensions
         };
 
         private static readonly Func<TeendoDto, Teendo> LoadFunc = LoadFromDto.Compile();
+
+
+
+
+
+
+
+
+        public static Entities.Teendo ToDb(this Teendo teendo)
+        {
+            return teendo == null ? null : ToDbFunc(teendo);
+        }
+
+        private static readonly Expression<Func<Teendo, Entities.Teendo>> ToDbExpression =
+            teendo => new Entities.Teendo()
+            {
+                Allapot = teendo.Allapot,
+                Fontossag = teendo.Fontossag.ToString(),
+                Hatarido = teendo.Hatarido,
+                Letrehozas = teendo.Letrehozas,
+                SzinKod = teendo.SzinKod,
+                Szoveg = teendo.Szoveg
+            };
+
+        private static readonly Func<Teendo, Entities.Teendo> ToDbFunc = ToDbExpression.Compile();
+
+        public static IEnumerable<Teendo> FromDbToList(this IEnumerable<Entities.Teendo> teendo)
+        {
+            return teendo == null ? null : teendo.Select(FromDbFunc);
+        }
+
+        private static readonly Expression<Func<Entities.Teendo, Teendo>> FromDbExpression = teendo => new Teendo()
+        {
+            Id = teendo.Id,
+            Allapot = teendo.Allapot,
+            Fontossag = Fontossag.ToTipus(teendo.Fontossag),
+            Hatarido = teendo.Hatarido,
+            Letrehozas = teendo.Letrehozas,
+            SzinKod = teendo.SzinKod,
+            SzinkodMegadva = teendo.SzinKod != null,
+            Szoveg = teendo.Szoveg
+        };
+
+        private static readonly Func<Entities.Teendo, Teendo> FromDbFunc = FromDbExpression.Compile();
     }
 }

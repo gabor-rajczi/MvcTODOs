@@ -8,6 +8,7 @@ using MvcToDos.Dtos;
 using MvcToDos.Models;
 using MvcToDos.Services;
 using MvcToDos.Util.Extensions;
+using TeendoListaElem = MvcToDos.Entities.TeendoListaElem;
 
 namespace MvcToDos.Controllers
 {
@@ -26,6 +27,23 @@ namespace MvcToDos.Controllers
 
         public ActionResult Index()
         {
+            using (var session = FluentNHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                /*
+                var t = new Teendo()
+                {
+                    Szoveg = "Teszt",
+                    Allapot = true,
+                    Letrehozas = DateTime.Now
+                };
+                var t2 = t.ToDb();
+
+                session.Save(t2);
+                 */
+                var t = session.CreateCriteria(typeof(Entities.Teendo)).List<Entities.Teendo>().FromDbToList().ToList();
+                transaction.Commit();
+            }
             var lista = LoadTeendok();
             /*if (!lista.Teendok.Any())
             {

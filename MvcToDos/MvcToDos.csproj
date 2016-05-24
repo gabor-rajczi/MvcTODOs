@@ -144,9 +144,18 @@
     <Compile Include="Dtos\TeendokListajaDto.cs" />
     <Compile Include="Dtos\TeendoListaDto.cs" />
     <Compile Include="Dtos\TeendoListaElemDto.cs" />
+    <Compile Include="Entities\Teendo.cs" />
+    <Compile Include="Entities\TeendoBase.cs" />
+    <Compile Include="Entities\TeendoLista.cs" />
+    <Compile Include="Entities\TeendoListaElem.cs" />
+    <Compile Include="Entities\TeendoTipus.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\TeendoBaseMap.cs" />
+    <Compile Include="Mappings\TeendoListaElemMap.cs" />
+    <Compile Include="Mappings\TeendoListaMap.cs" />
+    <Compile Include="Mappings\TeendoMap.cs" />
     <Compile Include="Models\Fontossag.cs" />
     <Compile Include="Models\ITeendo.cs" />
     <Compile Include="Models\Teendo.cs" />
@@ -159,6 +168,7 @@
     <Compile Include="Services\IPersisterService.cs" />
     <Compile Include="Services\ISerializeService.cs" />
     <Compile Include="Services\XmlSerializeService.cs" />
+    <Compile Include="Util\Helpers\FluentNHibernateHelper.cs" />
     <Compile Include="Util\Extensions\TeendoExtensions.cs" />
     <Compile Include="Util\Extensions\TeendokListajaExtensions.cs" />
     <Compile Include="Util\Extensions\TeendoListaElemExtension.cs" />
