@@ -49,5 +49,21 @@ namespace MvcToDos.Util.Extensions
             };
 
         private static readonly Func<TeendoListaElemDto, TeendoListaElem> LoadFunc = LoadFrom.Compile();
+
+
+
+        public static Entities.TeendoListaElem ToDb(this TeendoListaElem elem)
+        {
+            return elem == null ? null : ToDbFunc(elem);
+        }
+
+        private static readonly Expression<Func<TeendoListaElem, Entities.TeendoListaElem>> ToDbExpression =
+            elem => new Entities.TeendoListaElem()
+            {
+                Szoveg = elem.Szoveg
+            };
+
+        private static readonly Func<TeendoListaElem, Entities.TeendoListaElem> ToDbFunc = ToDbExpression.Compile();
+
     }
 }
